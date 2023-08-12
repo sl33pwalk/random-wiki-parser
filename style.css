@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f2f2f2;
+    transition: background-color 0.3s ease-in-out;
+    color: #333; /* Добавляем цвет текста */
+}
+
+
+#images {
+    display: flex;
+    flex-wrap: wrap; /* Перенос на следующую строку */
+    gap: 10px; /* Промежуток между изображениями */
+    justify-content: flex-start; /* Выравнивание в начале */
+}
+
+#images img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    object-fit: cover;
+    opacity: 0; /* Изначально изображение невидимо */
+    transition: border-color 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Добавляем анимацию */
+}
+
+/* Появление рамки и изображения с задержкой */
+@keyframes fadeIn {
+    to {
+        border-color: #ddd; /* Цвет рамки */
+        opacity: 1; /* Появление изображения */
+    }
+}
+
+#images img {
+    animation: fadeIn 0.3s ease-in-out 0.3s forwards; /* Задержка 0.3 секунды */
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.dark-theme {
+    background-color: #121212;
+    color: white;
+}
+
+/* Добавляем стили для текста в зависимости от темы */
+.dark-theme p,
+.dark-theme h1,
+.dark-theme h2,
+.dark-theme a {
+    color: rgb(161, 161, 161);
+}
+
+.dark-theme .container {
+    background-color: rgb(31, 31, 31);
+}
+
+.theme-switch {
+    display: flex;
+    align-items: center; /* Выравниваем вертикально */
+    gap: 10px; /* Добавляем промежуток между элементами */
+    margin-top: 10px; /* Добавляем отступ сверху */
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: relative; /* Используем относительное позиционирование */
+    cursor: pointer;
+    width: 60px;
+    height: 34px;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+#article-title-link a {
+    color: #007BFF;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out; /* Добавляем переход для цвета */
+}
+
+#article-title-link a:hover {
+    color: #0056b3; /* Изменяем цвет при наведении */
+}
